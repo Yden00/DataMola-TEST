@@ -24,8 +24,7 @@ export class TableComponentComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor() {}
   ngOnInit(){
-    this.dataSource.sort = this.sort;
-    this.dataSource = this.dataSource;
+
     combineLatest([
       this.yearFilter.pipe(startWith('')),
       this.nameFilter.pipe(startWith('')),
@@ -35,7 +34,9 @@ export class TableComponentComponent implements OnInit {
         this.dataSource = new MatTableDataSource(ELEMENT_DATA.filter(element => {
           return element.name.includes(name) && (element.chips.includes(genre) || !genre) && element.premiere.includes(year);
         }))
-      this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.dataSource = this.dataSource;
+        this.dataSource.paginator = this.paginator;
       })
   }
 }
@@ -46,8 +47,8 @@ export interface ChipColor {
 
 export class ChipsStackedExample {
   availableColors: ChipColor[] = [
-    {name: 'drama', color: undefined},
-    {name: 'crime', color: 'primary'},
+    {name: 'drama', color: 'primary'},
+    {name: 'crime', color: 'accent'},
     {name: 'horror', color: 'accent'},
     {name: 'tragedy', color: 'warn'},
     {name: 'dark comedy', color: 'warn'},
