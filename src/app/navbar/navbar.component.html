@@ -1,27 +1,20 @@
 <nav>
   <mat-form-field appearance="outline">
     <mat-label>Name</mat-label>
-    <input matInput placeholder="Name">
+    <input matInput placeholder="Name" [formControl]="name">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Genre</mat-label>
-    <mat-select>
-      <mat-option value="drama">Drama</mat-option>
-      <mat-option value="horror">Horror</mat-option>
-      <mat-option value="crime">Crime</mat-option>
-      <mat-option value="dark comedy">Dark comedy</mat-option>
-      <mat-option value="tragedy">Tragedy</mat-option>
+    <mat-select [formControl]="genre">
+      <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
     </mat-select>
-    <mat-error>Please choose a genre</mat-error>
     <mat-hint></mat-hint>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Premiere Year</mat-label>
-    <mat-select>
-
+    <mat-select [formControl]="year">
+      <mat-option *ngFor="let premiere of years" [value]="premiere">{{ premiere }}</mat-option>
     </mat-select>
-    <mat-error>Please choose year</mat-error>
     <mat-hint></mat-hint>
   </mat-form-field>
 </nav>
-
