@@ -13,6 +13,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ColoringChipsDirective } from './coloring-chips.directive';
 @NgModule({
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     NavbarComponent,
-    TableComponentComponent
+    TableComponentComponent,
+    ColoringChipsDirective
   ],
   imports: [
     ReactiveFormsModule,
